@@ -33,7 +33,7 @@ def fetch_latest_tweet():
                     if media_url:
                         response = requests.get(media_url)
                         img = Image.open(BytesIO(response.content))
-                        text = pytesseract.image_to_string(img)
+                        text = pytesseract.image_to_string(img) # KPLC tweets are usually in image form, hence need for OCR(pytesseract)
                         return text.strip()
                 return tweet.text.strip()
     except Exception as e:
